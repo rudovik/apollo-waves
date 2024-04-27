@@ -1,0 +1,35 @@
+.button {
+  background-color: $color-link-default;
+  text-transform: uppercase;
+  padding: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+
+  &:disabled {
+    cursor: wait;
+  }
+
+  &__text:not(:first-child) {
+    margin-left: 1rem;
+  }
+
+  &--bag,
+  &--addToCart {
+    border: 1px solid $color-grey-light-4;
+    font-size: 1.4rem;
+    transition: all 200ms ease-in;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    color: $color-link-font;
+    background-color: $color-grey-light-6;
+  }
+
+  &--bag:hover,
+  &--addToCart:hover {
+    background-color: $color-grey-dark-3;
+    color: $color-white;
+  }
+}

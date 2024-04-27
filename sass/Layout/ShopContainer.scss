@@ -1,0 +1,12 @@
+.shopContainer {
+  display: flex;
+
+  &__left {
+    flex-grow: 1;
+    margin-top: 2rem;
+  }
+
+  &__right {
+    width: 80rem;
+  }
+}

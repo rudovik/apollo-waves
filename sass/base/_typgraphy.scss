@@ -1,0 +1,27 @@
+body {
+  font-family: $font-primary;
+  color: $color-font-default;
+  font-size: $font-size-default;
+}
+
+.tag {
+  &-title,
+  &-low-title {
+    background-color: rgba($color-grey-dark-2, 0.529);
+    color: $color-white;
+    padding: 0px 2rem;
+    text-transform: uppercase;
+    display: table;
+  }
+
+  &-title {
+    font-size: 7rem;
+    font-weight: 700;
+  }
+  &-low-title {
+    font-size: 5rem;
+    font-weight: 300;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

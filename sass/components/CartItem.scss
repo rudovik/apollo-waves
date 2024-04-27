@@ -1,0 +1,43 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  background: $color-white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ebebeb;
+
+  &__title {
+    margin: 2rem 0;
+  }
+
+  &__name,
+  &__quantity,
+  &__price,
+  &__imageWrapper {
+    flex-grow: 1;
+  }
+
+  &__image {
+    height: 12.5rem;
+    background-size: contain !important;
+    background-position: center center !important;
+    margin-right: 1rem;
+  }
+
+  &__imageWrapper {
+    // overflow: hidden;
+    // width: 10%;
+    display: block;
+    // align-self: stretch;
+  }
+
+  &__btn {
+    color: $color-white;
+    border: none;
+    background-color: #f44336;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: inherit;
+  }
+}

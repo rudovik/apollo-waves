@@ -1,0 +1,19 @@
+.navigation {
+  &__title {
+    color: $color-font-default;
+    margin: 2rem 0;
+  }
+
+  &__link {
+    display: block;
+    border-bottom: 1px solid #dddddd;
+    font-size: 2rem;
+    font-weight: 300;
+    padding: 1rem 0;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

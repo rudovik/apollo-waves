@@ -1,0 +1,87 @@
+.accordion {
+  overflow: hidden;
+  border-bottom: 1px solid $color-grey-light-7;
+  // padding: 1rem 0;
+
+  & {
+    margin-bottom: 3rem;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__content {
+    & li {
+      display: block;
+      height: $accordion-item-height;
+    }
+
+    transition: all 0.2s ease-in;
+    height: 0;
+  }
+
+  &__label {
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    padding-bottom: $global-spacer-vertical;
+
+    &__text {
+      display: inline-block;
+      margin-right: $global-spacer-horizontal;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  &__item {
+    padding-bottom: $global-spacer-vertical;
+  }
+
+  &__icon {
+    transition: all 0.2s ease-in;
+    display: inline-block !important;
+  }
+
+  &__checkbox:checked ~ &__content {
+    &--1 {
+      height: $accordion-item-height;
+    }
+    &--2 {
+      height: calc($accordion-item-height * 2);
+    }
+    &--3 {
+      height: calc($accordion-item-height * 3);
+    }
+    &--4 {
+      height: calc($accordion-item-height * 4);
+    }
+    &--5 {
+      height: calc($accordion-item-height * 5);
+    }
+    &--6 {
+      height: calc($accordion-item-height * 6);
+    }
+    &--7 {
+      height: calc($accordion-item-height * 7);
+    }
+    &--8 {
+      height: calc($accordion-item-height * 8);
+    }
+    &--9 {
+      height: calc($accordion-item-height * 9);
+    }
+    &--10 {
+      height: calc($accordion-item-height * 10);
+    }
+  }
+
+  // &__checkbox:checked ~ &__label ~ &__icon {
+  //   transform: rotate(90deg);
+  // }
+
+  &__checkbox:checked ~ &__label &__icon {
+    transform: rotate(90deg);
+  }
+}

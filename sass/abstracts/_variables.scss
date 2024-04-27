@@ -1,0 +1,48 @@
+// COLORS
+$color-background-light: #999592;
+$color-background-dark: #272723;
+
+$color-link-default: #e1ddc3;
+$color-link-font: #c3c0b1;
+
+$color-font-default: #404040;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey-light-1: #eee;
+$color-grey-light-2: #c9c9c9;
+$color-grey-light-3: #f0f0f0;
+$color-grey-light-4: #dcdcdc;
+$color-grey-light-5: #d9d9d9;
+$color-grey-light-6: #f8f8f8;
+$color-grey-light-7: #dbdbdb;
+$color-grey-light-8: #e8e8e8;
+$color-grey-light-9: #c6c6c6;
+
+$color-grey-dark-1: #4d4d4d;
+$color-grey-dark-2: #828282;
+$color-grey-dark-3: #aaaaaa;
+$color-grey-dark-4: #6b6b6b;
+$color-grey-dark-5: #999592;
+$color-grey-dark-6: #727272;
+
+$color-blue: #2196f3;
+$color-input-checked: rgb(25, 118, 210);
+$color-input-unchecked: rgba(110, 110, 110, 0.6);
+$color-input-unchecked-hover: rgba(10, 10, 10, 0.6);
+
+// FONT
+$font-primary: var(--font-oswald), sans-serif;
+$font-monoton: var(--font-monoton), sans-serif;
+$font-size-default: 1.6rem;
+
+// SPACING
+$global-spacer-vertical: 1.5rem;
+$global-spacer-horizontal: 1rem;
+
+// ICONS
+$default-icon-size: 2.4rem;
+
+// ACCORDION
+$accordion-item-height: calc(2.4rem + $global-spacer-vertical);

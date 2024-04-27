@@ -1,0 +1,41 @@
+.checkbox {
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+
+    &__text {
+      padding-left: $global-spacer-horizontal;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    color: $color-input-unchecked;
+    // font-size: 4rem !important;
+  }
+
+  &__icon--checked {
+    display: none !important;
+  }
+
+  &__label:hover &__icon {
+    color: $color-input-unchecked-hover;
+  }
+
+  &__input:checked ~ &__label &__icon--checked {
+    display: block !important;
+    color: $color-input-checked;
+  }
+
+  &__input:checked ~ &__label &__icon--unchecked {
+    display: none !important;
+  }
+}

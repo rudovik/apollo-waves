@@ -1,0 +1,5 @@
+mutation RemoveFromCart($productId: ObjectId!) {
+  removeFromCart(productId: $productId) {
+    success
+  }
+}

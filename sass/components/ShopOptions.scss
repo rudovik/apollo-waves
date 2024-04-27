@@ -1,0 +1,21 @@
+.shopOptions {
+  border-bottom: 1px solid $color-grey-light-8;
+  margin: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  &__gridButton {
+    padding: 1rem 1rem;
+    font-size: 2rem;
+    color: $color-grey-light-9;
+    cursor: pointer;
+
+    &--active {
+      color: $color-grey-dark-6;
+    }
+  }
+
+  &__gridButton:hover {
+    color: $color-input-unchecked-hover;
+  }
+}

@@ -1,0 +1,90 @@
+.radioButton {
+  // cursor: pointer;
+  // position: relative;
+  // // padding-left: 4.5rem;
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    // display: flex;
+    // align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: calc($global-spacer-horizontal + $default-icon-size);
+    user-select: none;
+  }
+
+  &__label:hover::before {
+    border-color: $color-input-unchecked-hover;
+  }
+
+  &__label::before {
+    content: "";
+    position: absolute;
+    width: $default-icon-size;
+    height: $default-icon-size;
+    display: inline-block;
+    border: 0.2rem solid $color-input-unchecked;
+    border-radius: 50%;
+    left: 0;
+  }
+  &__label::after {
+    content: "";
+    position: absolute;
+    height: calc($default-icon-size * 0.5);
+    width: calc($default-icon-size * 0.5);
+    left: 0;
+    top: 50%;
+    background-color: $color-input-checked;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(50%);
+    display: none;
+  }
+
+  &__input:checked ~ &__label::before {
+    border-color: $color-input-checked;
+  }
+  &__input:checked ~ &__label::after {
+    display: inline-block;
+  }
+
+  // &__button:checked ~ &__label &__labelButton::after {
+  //   opacity: 1;
+  //   // display: none;
+  // }
+
+  // &__button:checked ~ &__label &__labelButton {
+  //   border-color: $color-checkbox-checked;
+  //   // display: none;
+  // }
+
+  // &__labelButton {
+  //   width: 2.4rem;
+  //   height: 2.4rem;
+  //   border: 2px solid $color-checkbox-unchecked;
+  //   display: inline-block;
+  //   border-radius: 50%;
+  //   position: relative;
+  //   padding-right: 1rem;
+  // }
+
+  // &__labelButton:hover,
+  // &__label:hover &__labelButton {
+  //   border-color: $color-checkbox-unchecked-hover;
+  // }
+
+  // &__labelButton::after {
+  //   position: absolute;
+  //   content: "";
+  //   width: 1rem;
+  //   height: 1rem;
+  //   background-color: $color-checkbox-checked;
+  //   border-radius: 50%;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   opacity: 0;
+  // }
+}

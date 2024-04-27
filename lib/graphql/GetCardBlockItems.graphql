@@ -1,0 +1,11 @@
+query GetCardBlockItems($sortBy: SortBy!) {
+  getCardBlockItems(sortBy: $sortBy) {
+    _id
+    image
+    brand {
+      name
+    }
+    name
+    price
+  }
+}

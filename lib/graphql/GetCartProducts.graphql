@@ -1,0 +1,10 @@
+query GetCartProducts {
+  getCartProducts {
+    userId
+    productId
+    name
+    quantity
+    price
+    image
+  }
+}

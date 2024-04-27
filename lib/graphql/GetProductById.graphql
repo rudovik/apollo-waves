@@ -1,0 +1,25 @@
+query GetProductById($_id: ObjectId!) {
+  getProductById(_id: $_id) {
+    _id
+    name
+    description
+    price
+    brand {
+      _id
+      name
+    }
+    shipping
+    available
+    wood {
+      _id
+      name
+    }
+    frets
+    sold
+    publish
+    images {
+      url
+      public_id
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "waves",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate": "graphql-codegen"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/client": "^3.9.11",
+    "@apollo/experimental-nextjs-app-support": "^0.10.0",
+    "@as-integrations/next": "^3.0.0",
+    "@auth/mongodb-adapter": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.2.5",
+    "@paypal/react-paypal-js": "^8.2.0",
+    "@typegoose/typegoose": "^12.3.1",
+    "@types/react-slick": "^0.23.13",
+    "class-validator": "^0.14.1",
+    "mongodb": "^6.5.0",
+    "next": "^14.2.2",
+    "next-auth": "^5.0.0-beta.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-slick": "^0.30.2",
+    "reflect-metadata": "^0.2.2",
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3",
+    "slick-carousel": "^1.8.1",
+    "terser-webpack-plugin": "^5.3.10",
+    "type-graphql": "^2.0.0-beta.6",
+    "yet-another-react-lightbox": "^3.17.5"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.79",
+    "typescript": "5.4.5"
+  }
+}

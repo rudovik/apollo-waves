@@ -1,0 +1,5 @@
+mutation DeleteWood($name: String!) {
+  deleteWood(name: $name) {
+    success
+  }
+}

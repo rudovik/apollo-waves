@@ -1,0 +1,28 @@
+query GetProductsToShop(
+  $filters: GetProductsToShopFiltersInput
+  $sortBy: SortBy
+  $limit: Float
+  $order: SortOrderScalar
+  $skip: Float
+) {
+  getProductsToShop(
+    filters: $filters
+    sortBy: $sortBy
+    limit: $limit
+    order: $order
+    skip: $skip
+  ) {
+    size
+    total
+    products {
+      _id
+      image
+      brand {
+        name
+      }
+      name
+      price
+      description
+    }
+  }
+}

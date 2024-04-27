@@ -1,0 +1,64 @@
+.header {
+  background-color: $color-background-light;
+  position: fixed;
+  border-bottom: 1px solid $color-white;
+  width: 100%;
+  z-index: 99;
+  // height: 9rem;
+
+  &__link {
+    margin-right: 2rem;
+
+    text-decoration: none;
+    color: inherit;
+
+    &--cartLink {
+      position: relative;
+      display: inline-block;
+      span {
+        position: absolute;
+        background: red;
+        top: 2px;
+        color: $color-white;
+        left: -50%;
+        border-radius: 50%;
+        padding: 0px 7px 2px 7px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__logo {
+    font-family: $font-monoton;
+    color: $color-white;
+    font-size: 4rem;
+    padding: 1rem 0rem;
+    text-transform: uppercase;
+    width: 25rem;
+  }
+
+  &__container {
+    display: flex;
+
+    &__right {
+      width: 100%;
+      border-left: 1px solid $color-grey-light-1;
+      border-right: 1px solid $color-grey-light-1;
+
+      &__top,
+      &__bottom {
+        text-transform: uppercase;
+        font-weight: 700;
+        text-align: right;
+        color: $color-white;
+        font-size: 1.5rem;
+        padding: 1rem 0rem;
+      }
+
+      &__top {
+        color: $color-grey-light-2;
+        border-bottom: 1px solid $color-white;
+      }
+    }
+  }
+}

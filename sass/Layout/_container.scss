@@ -1,0 +1,51 @@
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  // position: relative;
+  // height: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.userContainer {
+  display: flex;
+  margin-bottom: 5rem;
+  min-height: 70rem;
+
+  &__left {
+    border-right: 1px solid $color-grey-light-6;
+    width: 28rem;
+  }
+
+  &__right {
+    flex-grow: 1;
+    padding-left: 2.9rem;
+  }
+
+  &__title {
+    margin: 2rem 0;
+  }
+}
+
+.userInfoPanel {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  &__title {
+    margin: 0 0 2rem 0;
+    line-height: 3.2rem;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
+
+  & span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+}
+
+.payPalButtonContainer {
+  margin: 1rem 0;
+}
