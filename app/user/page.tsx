@@ -2,7 +2,7 @@ import { auth } from "lib/auth/nextAuth"
 
 export default async function UserPage() {
   const session = await auth()
-  if (!session) return null
+  if (!session) return
   const {
     user: { email, image, name },
   } = session

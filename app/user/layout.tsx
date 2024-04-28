@@ -21,7 +21,7 @@ export default async function UserPageLayout({ children }) {
             <Navigation items={adminLinks} title={"Admin"} key={"Admin"} />
           )}
         </div>
-        {session && <div className="userContainer__right">{children}</div>}
+        <div className="userContainer__right">{children}</div>
       </div>
     </div>
   )
