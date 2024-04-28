@@ -1,3 +1,3 @@
 export default function AddProductAdminPage() {
-  return <h1>User Profile</h1>
+  return <h1>Add Product</h1>
 }

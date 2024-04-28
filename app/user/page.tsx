@@ -1,9 +1,12 @@
 import { auth } from "lib/auth/nextAuth"
 
 export default async function UserPage() {
+  const session = await auth()
+  if (!session) return null
   const {
     user: { email, image, name },
-  } = await auth()
+  } = session
+
   return (
     <>
       <div className="userInfoPanel">
