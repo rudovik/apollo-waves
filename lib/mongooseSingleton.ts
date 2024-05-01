@@ -1,12 +1,12 @@
 import mongoose from "mongoose"
 import type { Mongoose } from "mongoose"
 
-declare global {
-  var mongoose: {
-    conn: Mongoose
-    promise: Promise<Mongoose>
-  }
-}
+// declare global {
+//   var mongoose: {
+//     conn: Mongoose
+//     promise: Promise<Mongoose>
+//   }
+// }
 
 const MONGODB_URI = process.env.MONGODB_URI!
 

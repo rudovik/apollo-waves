@@ -37,7 +37,7 @@ export default async function Header() {
                   </Link>
                 )
             )}
-            {<SignOutButton session={session} />}
+            {session && <SignOutButton />}
           </div>
           <div className="header__container__right__bottom">
             {bottomLinks.map(

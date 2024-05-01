@@ -14,6 +14,7 @@ async function handler(req: NextRequest) {
   const requestType = req.headers.get("content-type")
   if (
     !session ||
+    !session.user ||
     session.user.role !== "admin" ||
     !requestType ||
     !requestType.startsWith("multipart/form-data")

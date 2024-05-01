@@ -29,12 +29,12 @@ type HandlerType = {
   ): Promise<Response>
 }
 
-declare global {
-  var graphql: {
-    promise: Promise<HandlerType>
-    handler: HandlerType
-  }
-}
+// declare global {
+//   var graphql: {
+//     promise: Promise<HandlerType>
+//     handler: HandlerType
+//   }
+// }
 
 let cached = global.graphql
 

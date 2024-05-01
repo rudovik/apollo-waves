@@ -1,10 +1,11 @@
 "use server"
-import { signIn, signOut } from "./nextAuth"
 
-export async function signInUser(providerId) {
-  return await signIn(providerId)
+import { signIn as signInUser, signOut as signOutUser } from "./nextAuth"
+
+export async function signIn(providerId: string) {
+  return await signInUser(providerId)
 }
 
-export async function signOutUser() {
-  return await signOut()
+export async function signOut() {
+  return await signOutUser()
 }

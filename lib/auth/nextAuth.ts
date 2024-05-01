@@ -1,14 +1,15 @@
 import NextAuth from "next-auth"
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
-// import clientPromise from "./_authDb"
-import getMongoDbPromise from "./authDB"
+import clientPromise from "./db"
 import GitHub from "next-auth/providers/github"
 import type { NextAuthConfig } from "next-auth"
 import Google from "next-auth/providers/google"
 import type { Provider } from "next-auth/providers"
 
-export const config = {
-  adapter: MongoDBAdapter(getMongoDbPromise()),
+// console.log(!!global.mongoose.promise)
+
+const config = {
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     GitHub({
       profile(profile) {
