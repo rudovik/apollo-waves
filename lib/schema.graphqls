@@ -3,6 +3,21 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""Product Input"""
+input AddProductInput {
+  available: Boolean!
+  brand: ObjectId!
+  description: String!
+  frets: Float!
+  images: [ImageInput!]
+  name: String!
+  price: Float!
+  publish: Boolean!
+  shipping: Boolean!
+  sold: Float!
+  wood: ObjectId!
+}
+
 input AddToCartInput {
   productId: ObjectId!
   quantity: Float!
@@ -52,12 +67,18 @@ input GetProductsToShopFiltersInput {
   wood: [ObjectId!]
 }
 
+input ImageInput {
+  public_id: String!
+  url: String!
+}
+
 type ImageType {
   public_id: String!
   url: String!
 }
 
 type Mutation {
+  add(input: AddProductInput!): GenericResponse!
   addBrand(name: String!): GenericResponse!
   addToCart(input: AddToCartInput!): GenericResponse!
   addWood(name: String!): GenericResponse!

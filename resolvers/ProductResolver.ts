@@ -1,4 +1,11 @@
-import { Resolver, Query, registerEnumType, Arg } from "type-graphql"
+import {
+  Resolver,
+  Query,
+  registerEnumType,
+  Arg,
+  Mutation,
+  UseMiddleware,
+} from "type-graphql"
 import { ProductModel } from "models/Product"
 import { CardBlockItem } from "types/responses/CardBlockItem"
 import { Brand } from "models/Brand"
@@ -7,9 +14,13 @@ import { GetProductsToShopFiltersInput } from "types/inputs/GetProductsToShopFil
 import type { SortOrder } from "types/scalars/sortOrderScalar"
 import { SortOrderScalar } from "types/scalars/sortOrderScalar"
 import { ObjectId } from "mongodb"
+import { AddProductInput } from "types/inputs/AddProductInput"
 import { Wood } from "models/Wood"
 import { Product } from "models/Product"
 import { isDocument, Ref } from "@typegoose/typegoose"
+import { GenericResponse } from "types/responses/GenericResponse"
+import { isAdmin } from "middlewares/isAdmin"
+import { isAuth } from "middlewares/isAuth"
 
 enum SortBy {
   sold = "sold",
@@ -133,5 +144,27 @@ export class ProductResolver {
       size: products.length,
       total,
     }
+  }
+
+  @Mutation(() => GenericResponse)
+  @UseMiddleware(isAuth)
+  @UseMiddleware(isAdmin)
+  async add(
+    @Arg("input", { nullable: false })
+    {
+      name,
+      description,
+      price,
+      shipping,
+      available,
+      frets,
+      sold,
+      publish,
+      images,
+      wood,
+      brand,
+    }: AddProductInput
+  ): Promise<GenericResponse> {
+    return { success: true }
   }
 }
