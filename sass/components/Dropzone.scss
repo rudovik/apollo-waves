@@ -1,0 +1,29 @@
+.dropzone {
+  border: 1px solid #e5e5e5;
+  margin-bottom: 4rem;
+
+  &::after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+
+  &__box {
+    float: left;
+    width: 25%;
+    height: 16rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    background-color: #eaeaea;
+    height: 100%;
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 5rem;
+    background-size: contain !important;
+    background-position: center center !important;
+    border: 1px solid #eaeaea;
+  }
+}

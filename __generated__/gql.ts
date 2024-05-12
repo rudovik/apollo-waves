@@ -13,6 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+    "mutation AddProduct($input: AddProductInput!) {\n  addProduct(input: $input) {\n    success\n  }\n}": types.AddProductDocument,
     "mutation AddToCart($input: AddToCartInput!) {\n  addToCart(input: $input) {\n    success\n  }\n}": types.AddToCartDocument,
     "mutation AddWood($name: String!) {\n  addWood(name: $name) {\n    success\n  }\n}": types.AddWoodDocument,
     "mutation CaptureOrder($orderId: String!) {\n  captureOrder(orderId: $orderId) {\n    id\n    status\n  }\n}": types.CaptureOrderDocument,
@@ -41,6 +42,10 @@ const documents = {
  */
 export function gql(source: string): unknown;
 
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "mutation AddProduct($input: AddProductInput!) {\n  addProduct(input: $input) {\n    success\n  }\n}"): (typeof documents)["mutation AddProduct($input: AddProductInput!) {\n  addProduct(input: $input) {\n    success\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

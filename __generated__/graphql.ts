@@ -20,6 +20,21 @@ export type Scalars = {
   SortOrderScalar: { input: any; output: any; }
 };
 
+/** Product Input */
+export type AddProductInput = {
+  available: Scalars['Boolean']['input'];
+  brand: Scalars['ObjectId']['input'];
+  description: Scalars['String']['input'];
+  frets: Scalars['Float']['input'];
+  images?: InputMaybe<Array<ImageInput>>;
+  name: Scalars['String']['input'];
+  price: Scalars['Float']['input'];
+  publish: Scalars['Boolean']['input'];
+  shipping: Scalars['Boolean']['input'];
+  sold: Scalars['Float']['input'];
+  wood: Scalars['ObjectId']['input'];
+};
+
 export type AddToCartInput = {
   productId: Scalars['ObjectId']['input'];
   quantity: Scalars['Float']['input'];
@@ -74,6 +89,11 @@ export type GetProductsToShopFiltersInput = {
   wood?: InputMaybe<Array<Scalars['ObjectId']['input']>>;
 };
 
+export type ImageInput = {
+  public_id: Scalars['String']['input'];
+  url: Scalars['String']['input'];
+};
+
 export type ImageType = {
   __typename?: 'ImageType';
   public_id: Scalars['String']['output'];
@@ -83,6 +103,7 @@ export type ImageType = {
 export type Mutation = {
   __typename?: 'Mutation';
   addBrand: GenericResponse;
+  addProduct: GenericResponse;
   addToCart: GenericResponse;
   addWood: GenericResponse;
   captureOrder: PayPalCaptureOrderResponse;
@@ -95,6 +116,11 @@ export type Mutation = {
 
 export type MutationAddBrandArgs = {
   name: Scalars['String']['input'];
+};
+
+
+export type MutationAddProductArgs = {
+  input: AddProductInput;
 };
 
 
@@ -234,6 +260,13 @@ export type Wood = {
   name: Scalars['String']['output'];
 };
 
+export type AddProductMutationVariables = Exact<{
+  input: AddProductInput;
+}>;
+
+
+export type AddProductMutation = { __typename?: 'Mutation', addProduct: { __typename?: 'GenericResponse', success: boolean } };
+
 export type AddToCartMutationVariables = Exact<{
   input: AddToCartInput;
 }>;
@@ -315,6 +348,7 @@ export type RemoveFromCartMutationVariables = Exact<{
 export type RemoveFromCartMutation = { __typename?: 'Mutation', removeFromCart: { __typename?: 'GenericResponse', success: boolean } };
 
 
+export const AddProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AddProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddProductInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<AddProductMutation, AddProductMutationVariables>;
 export const AddToCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AddToCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddToCartInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addToCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<AddToCartMutation, AddToCartMutationVariables>;
 export const AddWoodDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AddWood"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addWood"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<AddWoodMutation, AddWoodMutationVariables>;
 export const CaptureOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CaptureOrder"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"orderId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"captureOrder"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"orderId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}}]}}]} as unknown as DocumentNode<CaptureOrderMutation, CaptureOrderMutationVariables>;

@@ -1,5 +1,5 @@
 import { Field, InputType } from "type-graphql"
-import { IsPositive, Min, Max } from "class-validator"
+import { IsPositive, Min, Max, ValidateNested } from "class-validator"
 import { ObjectId } from "mongodb"
 import { ImageInput } from "./ImageInput"
 
@@ -24,12 +24,10 @@ export class AddProductInput {
   frets: number
 
   @Field({ nullable: false })
-  sold: number
-
-  @Field({ nullable: false })
   publish: boolean
 
   @Field(() => [ImageInput], { nullable: true })
+  @ValidateNested()
   images?: ImageInput[]
 
   @Field({ nullable: false })

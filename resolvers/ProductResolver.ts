@@ -149,22 +149,16 @@ export class ProductResolver {
   @Mutation(() => GenericResponse)
   @UseMiddleware(isAuth)
   @UseMiddleware(isAdmin)
-  async add(
+  async addProduct(
     @Arg("input", { nullable: false })
-    {
-      name,
-      description,
-      price,
-      shipping,
-      available,
-      frets,
-      sold,
-      publish,
-      images,
-      wood,
-      brand,
-    }: AddProductInput
+    productInput: AddProductInput
   ): Promise<GenericResponse> {
+    const product = new ProductModel({
+      ...productInput,
+    })
+
+    await product.save()
+
     return { success: true }
   }
 }

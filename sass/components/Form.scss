@@ -1,0 +1,58 @@
+.form {
+  &__block:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    width: 100%;
+    margin: 1rem 0 0 0;
+    &::placeholder {
+      font-family: $font-primary;
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 1rem;
+    background: #e1ddc3;
+    margin-top: 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.2rem;
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 10rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #d1d1d1;
+
+    &::placeholder {
+      font-family: $font-primary;
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__select {
+    font-size: 1.6rem;
+    height: 3.8rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 0.3rem;
+    width: 100%;
+    margin: 1rem 0 0 0;
+  }
+
+  &__label {
+    display: inline-block;
+    background-color: #999592;
+    color: $color-white;
+    padding: 0.5rem 0.5rem;
+  }
+}

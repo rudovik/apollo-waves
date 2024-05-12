@@ -1,6 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Input from "components/Form/Input"
+import Select from "components/Form/Select"
+import TextArea from "components/Form/Textarea"
 import FileUpload from "components/FileUpload"
 import { useSuspenseQuery } from "@apollo/client"
 import {
@@ -8,6 +11,8 @@ import {
   GetAllWoodsDocument,
 } from "__generated__/graphql"
 import { frets } from "lib/fixedCategories"
+import { AddProductDocument } from "__generated__/graphql"
+import { useMutation } from "@apollo/client"
 
 export default function AddProductAdminPage() {
   const {
@@ -17,91 +22,141 @@ export default function AddProductAdminPage() {
     data: { getAllWoods: woods },
   } = useSuspenseQuery(GetAllWoodsDocument)
 
-  const [form, setForm] = useState({
-    name: "",
-    description: "",
-    price: 0,
-    brand: "",
-    shipping: true,
-    available: true,
-    wood: "",
-    frets: 0,
-    publish: true,
-    images: [],
+  const [addProductMutation, { loading: addingProduct }] =
+    useMutation(AddProductDocument)
+
+  const [fields, setFields] = useState<any>({
+    // name: "",
+    // description: "",
+    // price: "",
+    // brand: "",
+    // shipping: "",
+    // available: "",
+    // wood: "",
+    // frets: 0,
+    // publish: "",
+    // images: [],
   })
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault()
-    console.log("Submit Form")
+    const {
+      data: {
+        addProduct: { success },
+      },
+    } = await addProductMutation({ variables: { input: { ...fields } } })
+    console.log(success)
+  }
+
+  function updateField(name: string, value: boolean | string | number) {
+    const newFields = { ...fields }
+    if (name in newFields && value === "") delete newFields[name]
+    else {
+      newFields[name] = value
+    }
+
+    setFields(newFields)
+    console.log(newFields)
   }
 
   return (
     <>
       <h1>Add Product</h1>
 
-      <form onSubmit={submitForm}>
-        <FileUpload />
+      <form onSubmit={submitForm} className="form">
+        <FileUpload onChange={updateField} images={fields.images} />
 
-        <input
+        <Input
           type="text"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          onChange={updateField}
           name="name"
+          value={fields.name}
+          label={"Product name"}
+          placeholder="Enter product name"
         />
-        <input
-          type="text"
-          onChange={(e) => setForm({ ...form, description: e.target.value })}
+        <TextArea
+          onChange={updateField}
           name="description"
+          value={fields.description}
+          label={"Product Description"}
+          placeholder="Enter product description"
         />
-        <input
+        <Input
           type="number"
-          onChange={(e) => setForm({ ...form, description: e.target.value })}
+          onChange={updateField}
           name="price"
+          value={fields.price}
+          label="Product price"
+          placeholder="Enter product price"
         />
 
-        <div className="form_divider"></div>
+        <div className="form__divider"></div>
 
-        <select name="brand">
-          {brands.map((brand) => (
-            <option value={brand._id} key={brand._id}>
-              {brand.name}
-            </option>
-          ))}
-        </select>
+        <Select
+          name="brand"
+          onChange={updateField}
+          value={fields.brand}
+          options={brands}
+          label="Product Brand"
+        />
 
-        <select name="shipping">
-          <option value="Yes">Yes</option>
-        </select>
+        <Select
+          name="shipping"
+          onChange={updateField}
+          value={fields.shipping}
+          options={yesNoOptions}
+          type="boolean"
+          label="Shipping"
+        />
 
-        <select name="available">
-          <option value="Yes">Yes</option>
-        </select>
+        <Select
+          name="available"
+          onChange={updateField}
+          value={fields.available}
+          options={yesNoOptions}
+          type="boolean"
+          label="Available, in stock"
+        />
 
-        <div className="form_divider"></div>
+        <div className="form__divider"></div>
 
-        <select name="wood">
-          {woods.map((wood) => (
-            <option value={wood._id} key={wood._id}>
-              {wood.name}
-            </option>
-          ))}
-        </select>
+        <Select
+          name="wood"
+          onChange={updateField}
+          value={fields.wood}
+          options={woods}
+          label="Wood material"
+        />
 
-        <select name="frets">
-          {frets.map((fret) => (
-            <option value={fret.value} key={fret._id}>
-              {fret.value}
-            </option>
-          ))}
-        </select>
+        <Select
+          name="frets"
+          onChange={updateField}
+          value={fields.frets}
+          options={frets}
+          type="number"
+          label="Frets"
+        />
 
-        <div className="form_divider"></div>
+        <div className="form__divider"></div>
 
-        <select name="publish">
-          <option value="Yes">Yes</option>
-        </select>
+        <Select
+          name="publish"
+          onChange={updateField}
+          value={fields.publish}
+          options={yesNoOptions}
+          type="boolean"
+          label="Publish"
+        />
 
-        <button type="submit">Add Product</button>
+        <button type="submit" className="form__button">
+          Add Product
+        </button>
       </form>
     </>
   )
 }
+
+const yesNoOptions = [
+  { value: "true", text: "yes" },
+  { value: "false", text: "no" },
+]
